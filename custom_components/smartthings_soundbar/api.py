@@ -39,8 +39,6 @@ class SoundbarApi:
         device_source = data['main']['inputSource']['value']
         device_all_sources = json.loads(data['main']['supportedInputSources']['value'])
         device_muted = data['main']['mute']['value'] != "unmuted"
-        device_soundmode = json.loads(data['main']['data']['value'])['payload']['x.com.samsung.networkaudio.soundmode']
-        device_soundmode_list = json.loads(data['main']['data']['value'])['payload']['x.com.samsung.networkaudio.supportedSoundmode']
 
         if switch_state == "on":
             if device_source in CONTROLLABLE_SOURCES:
@@ -58,12 +56,23 @@ class SoundbarApi:
         self._source_list = device_all_sources if type(device_all_sources) is list else device_all_sources["value"]
         self._muted = device_muted
         self._source = device_source
-        self._sound_mode = device_soundmode
-        self._sound_mode_list = device_soundmode_list
         if self._state in [STATE_PLAYING, STATE_PAUSED] and 'trackDescription' in data['main']:
             self._media_title = data['main']['trackDescription']['value']
         else:
             self._media_title = None
+
+        API_DEVICE_STATUS = API_DEVICE + "/components/main/capabilities/execute/status"
+        API_FULL = "{'commands':[{'component': 'main','capability': 'execute','command': 'execute', 'arguments': ['/sec/networkaudio/soundmode']}]}"
+        cmdurl = requests.post(API_COMMAND, data=API_FULL, headers=REQUEST_HEADERS)
+        resp = requests.get(API_DEVICE_STATUS, headers=REQUEST_HEADERS)
+        data = resp.json()
+
+        device_soundmode = data['data']['value']['payload']['x.com.samsung.networkaudio.soundmode']
+        device_soundmode_list = data['data']['value']['payload']['x.com.samsung.networkaudio.supportedSoundmode']
+        self._sound_mode = device_soundmode
+        self._sound_mode_list = device_soundmode_list
+
+
 
     @staticmethod
     def send_command(self, argument, cmdtype):
