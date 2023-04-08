@@ -106,7 +106,7 @@ This integration was confirmed to work with following devices:
 - Samsung HW-S60T
 - Samsung HW-S61T
 
-<a href="https://www.buymeacoffee.com/PiotrMachowski" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
 <a href="https://paypal.me/thierryBourbon" target="_blank"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" border="0" alt="PayPal Logo" style="height: auto !important;width: auto !important;"></a>
 
 [releases_shield]: https://img.shields.io/github/release/thierry-rhone/Home-Assistant-custom-components-SmartThings-Soundbar.svg?style=popout
