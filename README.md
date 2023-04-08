@@ -112,7 +112,6 @@ This integration was confirmed to work with following devices:
 [releases_shield]: https://img.shields.io/github/release/thierry-rhone/Home-Assistant-custom-components-SmartThings-Soundbar.svg?style=popout
 [releases]: https://github.com/thierry-rhone/Home-Assistant-custom-components-SmartThings-Soundbar/releases
 [downloads_total_shield]: https://img.shields.io/github/downloads/thierry-rhone/Home-Assistant-custom-components-SmartThings-Soundbar/total
-
 [paypal_me_shield]: https://img.shields.io/static/v1.svg?label=%20&message=PayPal.Me&logo=paypal
 [paypal_me]: https://paypal.me/thierryBourbon
 
